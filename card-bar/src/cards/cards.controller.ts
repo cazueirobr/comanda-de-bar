@@ -1,5 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { CardsService } from './cards.service';
+import { createCardsDto } from 'src/dtos/createCardsDto.dto';
 
 @Controller('cards')
 export class CardsController {
@@ -16,8 +17,8 @@ export class CardsController {
     }
   
     @Post()
-    create(@Body() body: { client: string }) {
-      return this.CardsService.create(body);
+    create(@Body() createCardsDto: createCardsDto) {
+      return this.CardsService.create(createCardsDto);
     }
   
     @Put(':id')

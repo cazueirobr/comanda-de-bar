@@ -19,13 +19,13 @@ Autor: **Matheus Sydor**
 
 ### RA1 - Projetar e desenvolver uma API funcional utilizando o framework NestJS
 
-- [ ] **ID1**: Configurado ambiente de desenvolvimento e criação da API usando NestJS.
-- [ ] **ID2**: Organização da lógica de negócios separando responsabilidades em services e controllers.
+- [x] **ID1**: Configurado ambiente de desenvolvimento e criação da API usando NestJS.
+- [x] **ID2**: Organização da lógica de negócios separando responsabilidades em services e controllers.
 - [ ] **ID3**: Utilização de providers e injeção de dependência.
-- [ ] **ID4**: Manipulação de rotas HTTP e tratamento de requisições.
+- [x] **ID4**: Manipulação de rotas HTTP e tratamento de requisições.
 - [ ] **ID5**: Tratamento de erros com filtros globais e mensagens personalizadas.
-- [ ] **ID6**: Criação de classes DTO para validação dos dados.
-- [ ] **ID7**: Aplicou pipes de validação no NestJS para garantir integridade dos dados.
+- [x] **ID6**: Criação de classes DTO para validação dos dados.
+- [x] **ID7**: Aplicou pipes de validação no NestJS para garantir integridade dos dados.
 
 ### RA2 - Implementar persistência de dados com um banco de dados relacional utilizando Prisma ou TypeORM
 

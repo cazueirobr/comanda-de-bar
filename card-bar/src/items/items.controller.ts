@@ -1,20 +1,21 @@
 import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { ItemsService } from './items.service';
+import { registerItemsDto } from 'src/dtos/registerItemsDto.dto';
 
 @Controller('itens')
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
-  // Rota para adicionar um item à comanda
+
   @Post(':comandaId')
   create(
     @Param('comandaId') comandaId: number,
-    @Body() body: { name: string; price: number; quantity: number },
+    @Body() registerItemsDto: registerItemsDto
   ) {
-    return this.itemsService.create(comandaId, body);
+    return this.itemsService.create(comandaId, registerItemsDto);
   }
 
-  // Rota para listar todos os itens de uma comanda
+
   @Get(':comandaId')
   findAll(@Param('comandaId') comandaId: number) {
     return this.itemsService.findAllByComandaId(comandaId);
