@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
-import { ItemsModule } from './items/items.module'; // Importando o módulo de itens
-import { CardsModule } from './cards/cards.module'; // Importando o módulo de cards
+import { CardsService } from './cards/cards.service';
+import { CardsController } from './cards/cards.controller';
+import { ItemsService } from './items/items.service';
+import { ItemsController } from './items/items.controller';
+import { PrismaModule } from './prisma/prisma.module';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
-  imports: [CardsModule, ItemsModule],  // Adicionando os módulos de cards e itens
+  imports: [PrismaModule],
+  controllers: [CardsController, ItemsController],
+  providers: [PrismaService, CardsService, ItemsService],
 })
 export class AppModule {}
