@@ -1,23 +1,30 @@
-import { Controller, Get, Post, Param, Body } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ItemsService } from './items.service';
+import { Prisma } from '@prisma/client';
 import { registerItemsDto } from 'src/dtos/registerItemsDto.dto';
+import { updateItemsDto } from 'src/dtos/updateItemsDto.dto';
 
-@Controller('itens')
+@Controller('items')
 export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
-
-  @Post(':comandaId')
-  create(
-    @Param('comandaId') comandaId: number,
-    @Body() registerItemsDto: registerItemsDto
-  ) {
-    return this.itemsService.create(comandaId, registerItemsDto);
+  @Get(':cardId')
+  findAll(@Param('cardId') cardId: string) {
+    return this.itemsService.findAllByCardId(+cardId);
   }
 
+  @Post(':cardId')
+  create(@Param('cardId') cardId: string, @Body() data: registerItemsDto) {
+    return this.itemsService.create(+cardId, data);
+  }
 
-  @Get(':comandaId')
-  findAll(@Param('comandaId') comandaId: number) {
-    return this.itemsService.findAllByComandaId(comandaId);
+  @Put(':id')
+  update(@Param('id') id: string, @Body() data: updateItemsDto) {
+    return this.itemsService.update(+id, data);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.itemsService.remove(+id);
   }
 }

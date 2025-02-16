@@ -1,41 +1,41 @@
 import { Injectable } from '@nestjs/common';
+import { createCardsDto } from 'src/dtos/createCardsDto.dto';
+import { updateCardsDto } from 'src/dtos/updateCardsDto.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class CardsService {
-  private cards = [
-    { id: 1, client: 'Matheus' },
-    { id: 2, client: 'Carlos' },
-  ];
+  constructor(private prisma: PrismaService) {}
 
-  findAll() {
-    return this.cards;
+  async findAll() {
+    return this.prisma.card.findMany({
+      include: { items: true },
+    });
   }
 
-  findOne(id: number) {
-    return this.cards.find(card => card.id === id);
+  async findOne(id: number) {
+    return this.prisma.card.findUnique({
+      where: { id },
+      include: { items: true },
+    });
   }
 
-  create(card: { client: string }) {
-    const newCard = { id: this.cards.length + 1, ...card };
-    this.cards.push(newCard);
-    return newCard;
+  async create(data: createCardsDto) {
+    return this.prisma.card.create({
+      data,
+    });
   }
 
-  update(id: number, cardUpdates: { client: string }) {
-    const cardIndex = this.cards.findIndex(card => card.id === id);
-    if (cardIndex === -1) {
-      return `Comanda com ID ${id} não encontrada`;
-    }
-    this.cards[cardIndex] = { ...this.cards[cardIndex], ...cardUpdates };
-    return this.cards[cardIndex];
+  async update(id: number, data: updateCardsDto) {
+    return this.prisma.card.update({
+      where: { id },
+      data,
+    });
   }
 
-  remove(id: number) {
-    const cardIndex = this.cards.findIndex(card => card.id === id);
-    if (cardIndex === -1) {
-      return `Comanda com ID ${id} não encontrada`;
-    }
-    this.cards.splice(cardIndex, 1);
-    return `Comanda com ID ${id} removida com sucesso!`;
+  async remove(id: number) {
+    return this.prisma.card.delete({
+      where: { id },
+    });
   }
 }

@@ -9,8 +9,8 @@ Autor: **Matheus Sydor**
 
 ## Checklist de Funcionalidades
 
-- [ ] RA1: API funcional usando NestJS
-- [ ] RA2: Persistência de dados com MySQL
+- [x] RA1: API funcional usando NestJS
+- [x] RA2: Persistência de dados com MySQL
 - [ ] RA3: Testes automatizados com Jest
 - [ ] RA4: Documentação com Swagger
 - [ ] RA5: Autenticação e Autorização
@@ -21,7 +21,7 @@ Autor: **Matheus Sydor**
 
 - [x] **ID1**: Configurado ambiente de desenvolvimento e criação da API usando NestJS.
 - [x] **ID2**: Organização da lógica de negócios separando responsabilidades em services e controllers.
-- [ ] **ID3**: Utilização de providers e injeção de dependência.
+- [x] **ID3**: Utilização de providers e injeção de dependência.
 - [x] **ID4**: Manipulação de rotas HTTP e tratamento de requisições.
 - [ ] **ID5**: Tratamento de erros com filtros globais e mensagens personalizadas.
 - [x] **ID6**: Criação de classes DTO para validação dos dados.
@@ -29,10 +29,10 @@ Autor: **Matheus Sydor**
 
 ### RA2 - Implementar persistência de dados com um banco de dados relacional utilizando Prisma ou TypeORM
 
-- [ ] **ID8**: Modelagem das entidades e relações no ERD.
-- [ ] **ID9**: Configuração do Prisma e conexão ao banco de dados.
-- [ ] **ID10**: Criação e aplicação de migrações de banco de dados.
-- [ ] **ID11**: Implementação das operações CRUD para as entidades.
+- [x] **ID8**: Modelagem das entidades e relações no ERD.
+- [x] **ID9**: Configuração do Prisma e conexão ao banco de dados.
+- [x] **ID10**: Criação e aplicação de migrações de banco de dados.
+- [x] **ID11**: Implementação das operações CRUD para as entidades.
 
 ### RA3 - Realizar testes automatizados para garantir a qualidade da API
 
